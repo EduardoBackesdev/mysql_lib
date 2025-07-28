@@ -1,5 +1,7 @@
+from lib.Comum.select import select
+
 def main():
-    print("Hello, World!")
+    select("users", ["id", "name", "email"])
 
 if __name__ == "__main__":
     main()
