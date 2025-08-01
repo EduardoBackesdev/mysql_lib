@@ -4,23 +4,23 @@ class mysqlConnection:
     
     c = None
     
-    def __init__(self, host, user, password, database):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-
-    def con(self):    
+    def con(self):   
+        
+        host = ""
+        user = ""
+        password = ""
+        database = ""
+         
         try:
             self.c = mysql.connector.connect(
-                    host=self.host,
-                    user=self.user,
-                    password=self.password,
-                    database=self.database
+                    host=host,
+                    user=user,
+                    password=password,
+                    database=database
                 )
-            return "Connection successful"
+            return self.c
         except mysql.connector.Error as err:
-            return f"Error: {err}"
+            return err
         
     def close(self):
         self.c.close()
